@@ -1,17 +1,20 @@
 FROM python:3.10.15
 
 WORKDIR /app
-COPY server.py /app
-COPY segmentParser.py /app
-COPY requirements.txt /app
+COPY . /app
 
 # 创建并激活虚拟环境
 
-RUN python -m venv venv
+# 创建虚拟环境
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+
+# 将虚拟环境添加到 PATH
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # 安装依赖
-RUN . venv/bin/activate && RUN pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt
 
 #run app
-CMD ["venv/bin/python", "main.py"]
+CMD ["python", "server.py"]
 
