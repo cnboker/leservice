@@ -1,0 +1,35 @@
+{
+    "model": "Tacotron2",                      // 模型架构名称
+    "num_symbols": 148,                        // 字符表大小
+    "embedding_dim": 512,                      // 嵌入层维度
+    "encoder": {
+      "type": "tacotron_encoder",
+      "embedding_dim": 512
+    },
+    "decoder": {
+      "type": "tacotron_decoder",
+      "attention_dim": 128,
+      "attention_rnn_dim": 1024,
+      "decoder_rnn_dim": 1024,
+      "prenet_dim": 256
+    },
+    "postnet": {
+      "embedding_dim": 512,
+      "kernel_size": 5,
+      "num_layers": 5
+    },
+    "sample_rate": 22050,                      // 输出音频采样率
+    "outputs_per_step": 1,
+    "max_decoder_steps": 1000,
+    "gate_threshold": 0.5,
+    "p_attention_dropout": 0.1,
+    "p_decoder_dropout": 0.1,
+    "mask_padding": true,
+    "symbols_embedding_dim": 512,
+    //"text_cleaners": ["english_cleaners"],     // 文本预处理清理器
+    //"path": "path/to/model_checkpoint.pth",    // 模型权重文件路径
+    "use_griffin_lim": true,                   // 是否使用 Griffin-Lim 重构
+    "griffin_lim_iters": 60,
+    "power": 1.5
+  }
+  
