@@ -1,3 +1,4 @@
-coqui-tts
-flask
-flask-socketio==5.4.1
+TTS
+logmmse
+flask_socketio
+eventlet

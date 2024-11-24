@@ -1,2 +1,5 @@
 tts-env
+services/ttsservice/myenv
+services/edge_tts_service/myenv
+services/gminiservice/myenv
 __pycache__
